@@ -1,0 +1,17 @@
+<!-- categorias/form.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Nova Categoria</title>
+</head>
+<body>
+<h1>Formulário de Nova Categoria</h1>
+<form method="post" th:action="@{/categorias}" th:object="${categoria}">
+    <label>Nome:</label><br>
+    <input type="text" th:field="*{nome}" required><br>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
