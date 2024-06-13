@@ -23,4 +23,7 @@ public class CategoriaServico {
         categoriaRepositorio.deleteById(id);
     }
 
+    public Categoria findById(Long id) {
+        return null;
+    }
 }

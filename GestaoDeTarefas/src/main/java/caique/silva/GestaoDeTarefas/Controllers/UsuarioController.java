@@ -15,11 +15,15 @@ public class UsuarioController {
     @Autowired
     private UsuarioServico usuarioServico;
 
-    @GetMapping("/login_registro")
-    public String mostrarFormularioLoginRegistro() {
-        return "login_registro"; // Supondo que você tenha uma página chamada login_registro.html em seus recursos de modelo Thymeleaf
+    @GetMapping("/login")
+    public String mostrarFormularioLogin() {
+        return "login"; // Supondo que você tenha uma página chamada login.html em seus recursos de modelo Thymeleaf
     }
 
+    @GetMapping("/registro")
+    public String mostrarFormularioRegistro() {
+        return "registro"; // Supondo que você tenha uma página chamada registro.html em seus recursos de modelo Thymeleaf
+    }
 
     @PostMapping("/login")
     public String processarLogin(@RequestParam("username") String username,
@@ -28,10 +32,10 @@ public class UsuarioController {
         // Lógica de autenticação do usuário
         if (usuarioServico.autenticar(username, password)) {
             // Se as credenciais forem válidas, redireciona para a página principal ou outra página desejada
-            return "redirect:/pagina_principal";
+            return "redirect:/categorias";
         } else {
             model.addAttribute("erro", "Usuário ou senha inválidos. Por favor, tente novamente.");
-            return "login_registro";
+            return "login";
         }
     }
 
@@ -40,10 +44,14 @@ public class UsuarioController {
                                     @RequestParam("newPassword") String newPassword,
                                     Model model) {
         // Lógica para registrar um novo usuário
-        usuarioServico.registrarNovoUsuario(newUsername, newPassword);
-
-        // Redirecionar para a página principal
-        return "redirect:/tarefas";
+        try {
+            usuarioServico.registrarNovoUsuario(newUsername, newPassword);
+            // Redirecionar para a página de login se o registro for bem-sucedido
+            return "redirect:/login";
+        } catch (IllegalArgumentException e) {
+            // Se o nome de usuário já estiver em uso, adicionar mensagem de erro ao modelo
+            model.addAttribute("erroRegistro", e.getMessage());
+            return "registro";
+        }
     }
-
 }

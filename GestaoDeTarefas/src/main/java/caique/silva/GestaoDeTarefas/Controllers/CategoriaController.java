@@ -25,6 +25,15 @@ public class CategoriaController {
         model.addAttribute("categoria", new Categoria());
         return "categorias/formnova";
     }
+    @GetMapping("/editar/{id}")
+    public String mostrarFormEditarCategoria(@PathVariable Long id, Model model) {
+        Categoria categoria = categoriaServico.findById(id);
+        if (categoria != null) {
+            model.addAttribute("categoria", categoria);
+            return "categorias/form";
+        }
+        return "redirect:/categorias";
+    }
 
     @PostMapping
     public String salvar(@ModelAttribute Categoria categoria) {

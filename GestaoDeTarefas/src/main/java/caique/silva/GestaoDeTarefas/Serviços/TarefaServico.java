@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TarefaServico {
@@ -19,8 +20,17 @@ public class TarefaServico {
     public Tarefa salvar(Tarefa tarefa){
         return tarefaRepositorio.save(tarefa);
     }
-    public void excluirTarefa(Long id) {
+
+    public void deleteById(Long id) {
         tarefaRepositorio.deleteById(id);
     }
 
+    public List<Tarefa> getAllTarefas() {
+        return tarefaRepositorio.findAll();
+    }
+
+
+    public Optional<Tarefa> findById(Long id) {
+        return tarefaRepositorio.findById(id);
+    }
 }

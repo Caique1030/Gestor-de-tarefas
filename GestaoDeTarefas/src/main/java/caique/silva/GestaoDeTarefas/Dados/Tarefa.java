@@ -12,19 +12,11 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private LocalDate prazo;
-    private boolean concluida;
+    private boolean dataconclusao;
 
-    @ManyToOne
-    @JoinColumn(name ="categoria_id")
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     public Long getId() {
         return id;
@@ -32,6 +24,14 @@ public class Tarefa {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescricao() {
@@ -50,12 +50,12 @@ public class Tarefa {
         this.prazo = prazo;
     }
 
-    public boolean isConcluida() {
-        return concluida;
+    public boolean isDataconclusao() {
+        return dataconclusao;
     }
 
-    public void setConcluida(boolean concluida) {
-        this.concluida = concluida;
+    public void setDataconclusao(boolean dataconclusao) {
+        this.dataconclusao = dataconclusao;
     }
 
     public Categoria getCategoria() {

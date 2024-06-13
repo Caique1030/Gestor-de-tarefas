@@ -20,7 +20,6 @@
     <tr th:each="categoria : ${categorias}">
         <td th:text="${categoria.id}"></td>
         <td th:text="${categoria.nome}"></td>
-        <td th:text="${categoria.descricao}"></td>
         <td>
             <a th:href="@{/categorias/editar/{id}(id=${categoria.id})}">Editar</a>
             <a th:href="@{/categorias/excluir/{id}(id=${categoria.id})}">Excluir</a>
@@ -30,5 +29,9 @@
 </table>
 
 <a href="/categorias/nova">Nova Categoria</a>
+
+<!-- Botão para redirecionar para a página de tarefas -->
+<button onclick="window.location.href='/tarefas/listatarefas'">Ir para Tarefas</button>
+
 </body>
 </html>

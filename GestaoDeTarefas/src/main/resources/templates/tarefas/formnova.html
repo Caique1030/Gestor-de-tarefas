@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Tarefa</title>
-    <!-- Adicione links para folhas de estilo CSS, se necessário -->
+    <title>Formulário de Tarefa</title>
 </head>
 <body>
-<h1>Nova Tarefa</h1>
-<form action="/tarefas" method="post">
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" required>
-    <br>
-    <label for="descricao">Descrição:</label>
-    <textarea id="descricao" name="descricao" rows="4" cols="50" required></textarea>
-    <br>
-    <label for="prioridade">Prioridade:</label>
-    <select id="prioridade" name="prioridade" required>
-        <option value="baixa">Baixa</option>
-        <option value="media">Média</option>
-        <option value="alta">Alta</option>
-    </select>
-    <br>
-    <label for="categoria">Categoria:</label>
-    <select id="categoria" name="categoria" required>
-        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}">Selecione uma categoria</option>
-    </select>
-    <br>
+<h1 th:text="${tarefa.id} != null ? 'Editar Tarefa' : 'Nova Tarefa'"></h1>
+<form method="post" th:action="@{/tarefas}" th:object="${tarefa}">
+    <input type="hidden" th:field="*{id}">
+    <label>Título:</label><br>
+    <input type="text" th:field="*{titulo}" required><br>
+    <label>Descrição:</label><br>
+    <textarea th:field="*{descricao}" required></textarea><br>
+    <label>Prazo:</label><br>
+    <input type="date" th:field="*{prazo}" required><br>
+    <label>Data de Conclusão:</label><br>
+    <input type="checkbox" th:field="*{dataconclusao}"><br>
+    <label>Categoria:</label><br>
+    <select th:field="*{categoria}" required>
+        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
+    </select><br>
     <button type="submit">Salvar</button>
 </form>
 </body>
