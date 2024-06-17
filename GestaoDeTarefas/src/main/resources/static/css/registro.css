@@ -70,17 +70,17 @@ p {
   margin-bottom: 20px;
 }
 
-/* Registro Link Styles */
-.registro-link {
+/* Voltar ao login Link Styles */
+a {
   display: block;
   text-align: center;
   margin-top: 20px;
   font-size: 16px;
 }
 
-/* login.css */
+/* registro.css */
 
-/* Additional Styles for Login Page */
+/* Additional Styles for Registration Page */
 form {
   background-image: linear-gradient(to bottom, #f0f0f0, #ccc);
 }
