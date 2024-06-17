@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
 </head>
 <body>
 <h1>Login</h1>
@@ -16,6 +18,6 @@
     <button type="submit">Entrar</button>
     <p th:text="${erro}"></p>
 </form>
-<a href="/registro">Registrar Novo Usuário</a>
+<a href="/registro" class="registro-link">Registrar Novo Usuário</a>
 </body>
 </html>

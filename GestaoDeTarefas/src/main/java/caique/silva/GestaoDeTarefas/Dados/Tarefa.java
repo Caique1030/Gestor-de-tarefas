@@ -2,6 +2,7 @@ package caique.silva.GestaoDeTarefas.Dados;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -12,13 +13,16 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private LocalDate prazo;
-    private boolean dataconclusao;
+    private Date dataConclusao;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+    @Column(nullable = false)
+    private Boolean concluida = false;
 
     public Long getId() {
+
         return id;
     }
 
@@ -50,12 +54,12 @@ public class Tarefa {
         this.prazo = prazo;
     }
 
-    public boolean isDataconclusao() {
-        return dataconclusao;
+    public Date getDataConclusao() {
+        return dataConclusao;
     }
 
-    public void setDataconclusao(boolean dataconclusao) {
-        this.dataconclusao = dataconclusao;
+    public void setDataConclusao(Date dataConclusao) {
+        this.dataConclusao = dataConclusao;
     }
 
     public Categoria getCategoria() {
@@ -64,5 +68,14 @@ public class Tarefa {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public boolean isConcluida() {
+        return concluida;
+    }
+
+    // Setter method for 'completa'
+    public void setConcluida(boolean concluida) {
+        this.concluida = concluida;
     }
 }

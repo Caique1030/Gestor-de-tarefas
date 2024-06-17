@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Formulário de Tarefa</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<h1 th:text="${tarefa.id} != null ? 'Editar Tarefa' : 'Nova Tarefa'"></h1>
-<form method="post" th:action="@{/tarefas}" th:object="${tarefa}">
-    <input type="hidden" th:field="*{id}">
-    <label>Título:</label><br>
-    <input type="text" th:field="*{titulo}" required><br>
-    <label>Descrição:</label><br>
-    <textarea th:field="*{descricao}" required></textarea><br>
-    <label>Prazo:</label><br>
-    <input type="date" th:field="*{prazo}" required><br>
-    <label>Data de Conclusão:</label><br>
-    <input type="checkbox" th:field="*{dataconclusao}"><br>
-    <label>Categoria:</label><br>
-    <select th:field="*{categoria}" required>
-        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
-    </select><br>
-    <button type="submit">Salvar</button>
+<h1>Nova Tarefa</h1>
+<form th:action="@{/tarefas/salvar}" th:object="${tarefa}" method="post">
+    <div>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" th:field="*{titulo}" />
+    </div>
+    <div>
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" th:field="*{descricao}"></textarea>
+    </div>
+    <div>
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" th:field="*{categoria.id}">
+            <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="Concluida">Concluida:</label>
+        <input type="checkbox" id="concluida" th:field="*{concluida}" th:value="true"/>
+    </div>
+    <div>
+        <button type="submit">Salvar</button>
+    </div>
 </form>
 </body>
 </html>

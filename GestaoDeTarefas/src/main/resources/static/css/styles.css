@@ -1,0 +1,67 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* fundo cinza claro */
+    color: #333; /* cor do texto principal */
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: #007bff; /* azul */
+    color: #fff; /* texto branco */
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Estilo para o rodapé superior */
+#footer-top {
+    background-color: #007bff; /* azul */
+    color: #fff; /* texto branco */
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilo para o conteúdo principal */
+.main-content {
+    padding: 20px;
+}
+
+/* Estilo para o rodapé inferior */
+#footer-bottom {
+    background-color: #007bff; /* azul */
+    color: #fff; /* texto branco */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo para botões redondos */
+button {
+    border-radius: 20px; /* bordas arredondadas */
+    padding: 10px 20px;
+    background-color: #007bff; /* azul */
+    color: #fff; /* texto branco */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* azul mais escuro ao passar o mouse */
+}
+
+/* Estilo para links */
+a {
+    color: #007bff; /* azul */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
