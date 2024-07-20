@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GestaoDeTarefas.iml" filepath="$PROJECT_DIR$/.idea/GestaoDeTarefas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GestaoDeTarefas/GestaoDeTarefas.iml" filepath="$PROJECT_DIR$/GestaoDeTarefas/GestaoDeTarefas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Gestor-de-tarefas.iml" filepath="$PROJECT_DIR$/.idea/Gestor-de-tarefas.iml" />
     </modules>
   </component>
 </project>
